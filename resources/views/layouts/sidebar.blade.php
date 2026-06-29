@@ -5,9 +5,9 @@
     </div>
     <div class="sidebar-section">
         <div class="sidebar-label">Main Menu</div>
-        <a href="{{ route('dashboard') }}" class="sidebar-link active"><i class="bi bi-grid-1x2-fill"></i> Dashboard <i
+        <a href="{{ LaravelLocalization::localizeUrl('/dashboard') }}" class="sidebar-link active"><i class="bi bi-grid-1x2-fill"></i> {{ __('message.dashboard') }} <i
                 class="bi bi-chevron-right arrow"></i></a>
-        <a href="student-affairs.html" class="sidebar-link"><i class="bi bi-person-lines-fill"></i> Student
+        <a href="" class="sidebar-link"><i class="bi bi-person-lines-fill"></i> Student
             Affairs</a>
         <a href="finance.html" class="sidebar-link"><i class="bi bi-journal-bookmark-fill"></i> Finance</a>
         <a href="parent-portal.html" class="sidebar-link"><i class="bi bi-people-fill"></i> Parent Portal</a>

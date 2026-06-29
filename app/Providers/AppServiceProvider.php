@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        class_alias(
+            \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+            'LaravelLocalization'
+        );
     }
 }
