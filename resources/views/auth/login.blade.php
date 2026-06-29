@@ -14,8 +14,11 @@
                     <span class="input-group-text bg-white border-end-0"><i
                             class="bi bi-envelope text-muted"></i></span>
                     <input type="email" class="form-control border-start-0" placeholder="name@school.edu"
-                        style="border-left:none;">
+                        style="border-left:none;" name="email">
                 </div>
+                @error('email')
+                    <span class="text-danger" style="font-size:.82rem;">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-4">
                 <div class="d-flex justify-content-between">
@@ -25,11 +28,12 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-text bg-white border-end-0"><i class="bi bi-lock text-muted"></i></span>
-                    <input type="password" class="form-control border-start-0" value="••••••••"
+                    <input type="password" class="form-control border-start-0" name="password"
                         style="border-left:none; border-right:none;">
-                    <span class="input-group-text bg-white border-start-0"><i class="bi bi-eye text-muted"
-                            style="cursor:pointer;"></i></span>
                 </div>
+                @error('password')
+                    <span class="text-danger" style="font-size:.82rem;">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-check mb-4">
                 <input class="form-check-input" type="checkbox" id="keepLogin">
