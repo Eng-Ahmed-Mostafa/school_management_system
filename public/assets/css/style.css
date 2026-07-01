@@ -162,6 +162,125 @@ body {
     color: #6b7280;
 }
 
+/* ================================
+   Sidebar Accordion RTL Style
+================================ */
+
+.sidebar .accordion {
+    --bs-accordion-border-width: 0;
+    --bs-accordion-bg: transparent;
+    --bs-accordion-btn-bg: transparent;
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.sidebar .accordion-item {
+    border: none;
+    background: transparent;
+}
+
+/* زر القائمة الرئيسي */
+.sidebar .accordion-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
+    background: transparent !important;
+    color: #64748b;
+    font-size: .875rem;
+    font-weight: 600;
+    box-shadow: none !important;
+    transition: all .3s ease;
+}
+
+/* Hover */
+.sidebar .accordion-button:hover {
+    background: rgba(59, 130, 246, 0.08) !important;
+    color: #2563eb;
+}
+
+/* العنصر المفتوح */
+.sidebar .accordion-button:not(.collapsed) {
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: #2563eb;
+}
+
+/* أيقونة العنصر */
+.sidebar .accordion-button i:first-child {
+    font-size: .875rem;
+    margin-left: 12px;
+}
+
+/* إزالة السهم الافتراضي */
+.sidebar .accordion-button::after {
+    width: 18px;
+    height: 18px;
+    background-size: 18px;
+    margin-left: 0 !important;
+    margin-right: auto !important; /* السهم في أقصى اليسار */
+    transition: transform .3s ease;
+}
+
+/* دوران السهم عند الفتح */
+.sidebar .accordion-button:not(.collapsed)::after {
+    transform: rotate(-90deg);
+}
+
+/* إزالة حدود Bootstrap */
+.sidebar .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+
+/* القائمة الفرعية */
+.sidebar .accordion-collapse ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+/* العناصر الفرعية */
+.sidebar .accordion-collapse ul li a {
+    display: block;
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: .875rem;
+    font-weight: 500;
+    padding: 10px 18px 10px 45px;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+/* Hover للعناصر الفرعية */
+.sidebar .accordion-collapse ul li a:hover {
+    background: rgba(59, 130, 246, 0.08);
+    color: #2563eb;
+}
+
+/* العنصر النشط */
+.sidebar .accordion-collapse ul li a.active {
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+}
+
+/* ================================
+   RTL Support
+================================ */
+
+html[dir="rtl"] .sidebar .accordion-button {
+    text-align: right;
+}
+
+html[dir="rtl"] .sidebar .accordion-button::after {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .sidebar .accordion-collapse ul li a {
+    text-align: right;
+    padding: 10px 45px 10px 18px;
+}
 /* ================= Topbar ================= */
 
 .topbar {

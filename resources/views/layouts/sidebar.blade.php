@@ -5,10 +5,37 @@
     </div>
     <div class="sidebar-section">
         <div class="sidebar-label">Main Menu</div>
-        <a href="{{ LaravelLocalization::localizeUrl('/dashboard') }}" class="sidebar-link active"><i class="bi bi-grid-1x2-fill"></i> {{ __('message.dashboard') }} <i
+        <a href="{{ LaravelLocalization::localizeUrl('/dashboard') }}" class="sidebar-link active"><i
+                class="bi bi-grid-1x2-fill"></i> {{ __('message.dashboard') }} <i
                 class="bi bi-chevron-right arrow"></i></a>
-        <a href="" class="sidebar-link"><i class="bi bi-person-lines-fill"></i> Student
-            Affairs</a>
+
+        <div class="accordion" id="sidebarAccordion">
+            <div class="accordion-item">
+
+                <button class="accordion-button collapsed sidebar-link" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#gradesMenu">
+
+                    <i class="bi bi-person-lines-fill"></i>
+                    <span>{{ __('message.grades') }}</span>
+
+                </button>
+
+                <div id="gradesMenu" class="accordion-collapse collapse" data-bs-parent="#sidebarAccordion">
+
+                    <ul>
+                        <li>
+                            <a href="{{ route('grades.index') }}">
+                                {{ __('message.grades_list') }}
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <a href="" class="sidebar-link"><i class="bi bi-person-lines-fill"></i> Student Affairs</a>
         <a href="finance.html" class="sidebar-link"><i class="bi bi-journal-bookmark-fill"></i> Finance</a>
         <a href="parent-portal.html" class="sidebar-link"><i class="bi bi-people-fill"></i> Parent Portal</a>
         <a href="teacher-portal.html" class="sidebar-link"><i class="bi bi-person-video2"></i> Teacher Portal</a>
@@ -19,7 +46,8 @@
     <div class="sidebar-bottom">
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-link text-decoration-none text-danger fw-bold p-0"><i class="bi bi-box-arrow-right"></i> Sign Out</button>
+            <button type="submit" class="btn btn-link text-decoration-none text-danger fw-bold p-0"><i
+                    class="bi bi-box-arrow-right"></i> Sign Out</button>
         </form>
         <div class="academic-badge mt-2">
             <div class="title">Academic Year</div>

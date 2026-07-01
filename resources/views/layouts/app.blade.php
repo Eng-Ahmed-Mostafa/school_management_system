@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>EduNexus – Executive Dashboard</title>
+    <title>{{ config('app.name') }}</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     <style>
@@ -168,6 +168,7 @@
 </head>
 
 <body >
+
     <!-- Sidebar -->
     @include('layouts.sidebar')
 
@@ -177,6 +178,7 @@
     <main class="main-content">
         {{ $slot }}
     </main>
+
 </body>
 
 </html>
