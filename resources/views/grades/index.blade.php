@@ -13,25 +13,24 @@
 
     <div class="p-1 mt-3">
         {{-- search and sort functionality  --}}
-        <form method="GET" action="{{ route('grades.index') }}" class="mb-4 d-flex align-items-center">
+        <form method="GET" action="{{ route('grades.search') }}" class="mb-4 d-flex align-items-center">
+            @csrf
             <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('public.search') }}"
                 class="form-control me-2">
-            <select name="sort" class="form-select me-2">
+            <select name="order_by" class="form-select me-2">
                 <option>{{ __('public.sort_by') }}</option>
-                <option value="name" {{ request('sort') == 'name' ? 'selected' : '' }}>{{ __('public.ascending') }}
+                <option value="name->ar" {{ request('order_by') == 'name->ar' ? 'selected' : '' }}>{{ __('public.name_ar') }}
                 </option>
-                <option value="created_at" {{ request('sort') == 'created_at' ? 'selected' : '' }}>
-                    {{ __('public.descending') }}</option>
+                <option value="name->en" {{ request('order_by') == 'name->en' ? 'selected' : '' }}>{{ __('public.name_en') }}
+                </option>
+                <option value="created_at" {{ request('order_by') == 'created_at' ? 'selected' : '' }}>
+                    {{ __('public.created_at') }}</option>
             </select>
             {{-- sort name or date --}}
-            <select name="order" class="form-select me-2">
-                <option value="asc" {{ request('order') == 'asc' ? 'selected' : '' }}>{{ __('public.name_ar') }}
+            <select name="order_direction" class="form-select me-2">
+                <option value="asc" {{ request('order_direction') == 'asc' ? 'selected' : '' }}>{{ __('public.ascending') }}
                 </option>
-                <option value="desc" {{ request('order') == 'desc' ? 'selected' : '' }}>{{ __('public.name_en') }}
-                </option>
-                <option value="asc" {{ request('order') == 'asc' ? 'selected' : '' }}>{{ __('public.date_ar') }}
-                </option>
-                <option value="desc" {{ request('order') == 'desc' ? 'selected' : '' }}>{{ __('public.date_en') }}
+                <option value="desc" {{ request('order_direction') == 'desc' ? 'selected' : '' }}>{{ __('public.descending') }}
                 </option>
             </select>
             <button type="submit" class="btn btn-primary">{{ __('public.submit') }}</button>
@@ -49,7 +48,7 @@
             <tbody>
                 @foreach ($grades as $grade)
                     <tr>
-                        <td class="py-2 px-4 border-b">{{ $loop->iteration + 1 }}</td>
+                        <td class="py-2 px-4 border-b">{{ $loop->iteration }}</td>
                         <td class="py-2 px-4 border-b">{{ $grade->getNameTranslate() }}</td>
                         <td class="py-2 px-4 border-b">{{ $grade->notes }}</td>
                         <td class="py-2 px-4 border-b d-flex gap-2">

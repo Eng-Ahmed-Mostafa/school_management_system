@@ -26,4 +26,5 @@ return [
     'created' => 'Created successfully',
     'updated' => 'Updated successfully',
     'deleted' => 'Deleted successfully',
+    'created_at' => 'Created At',
 ];

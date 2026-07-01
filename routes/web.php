@@ -19,6 +19,7 @@ Route::group([
     })->name('dashboard');
 
     Route::apiResource('grades', GradeController::class)->except(['show']);
+    Route::get('grades/search', [GradeController::class, 'search'])->name('grades.search');
 });
 
 Route::middleware('auth')->group(function () {

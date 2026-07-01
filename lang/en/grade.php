@@ -11,4 +11,5 @@ return [
     'stage_name_ar' => 'Stage Name in Arabic',
     'stage_name_en' => 'Stage Name in English',
     'list_grades' => 'List of Grades',
+    'grade_exists' => 'Grade already exists with the same name in Arabic or English.',
 ];
